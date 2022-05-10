@@ -12,16 +12,16 @@ private:
     int m_maxHp;
     int m_Hp;
     int m_coins;
-    
+
     static const int DEFAULT_MAX_HP = 100;
     static const int DEFAULT_MAX_FORCE = 5;
 
 public:
     Player(std::string name, int maxHp = DEFAULT_MAX_HP, int maxForce = DEFAULT_MAX_FORCE);
-    Player(const Player& other) = default; /////////////////////////////////////////////////////////////////////////////////
-    void operator=(const Player& other);  //////////////////////////////////////////////////////////////////////////////////
+    Player(const Player& other) = default;
+    Player& operator=(const Player& other)=default;
     ~Player() = default;
-    
+
     void printInfo() const;
     void levelUp();
     int getLevel() const;
