@@ -90,4 +90,3 @@ int Player::getAttackStrength() const
 {
     return m_level+m_force;
 }
-
