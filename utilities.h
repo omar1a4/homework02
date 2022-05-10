@@ -4,7 +4,7 @@
 
 #ifndef EX2_UTILITIES_H
 #define EX2_UTILITIES_H
-
+#include<string>
 
 
 
@@ -106,7 +106,7 @@ void printTreasureCardInfo(const CardStats& card);
  * @return
  *      void
  */
-void printPlayerInfo(const char* name, int level, int force, int hp, int coins);
+void printPlayerInfo(const std::string name, int level, int force, int hp, int coins);
 
 
 
