@@ -5,7 +5,7 @@ using std::cout;
 using std::cin;
 using std::endl;
 
-const char* LINE_DIVIDER  = "------------------------";
+const char* LINE_DIVIDE = "------------------------";
 const int INITIAL_LEVEL=1;
 const int INITIAL_COINS=0;
 const int FINAL_LEVEL=10;
@@ -28,7 +28,7 @@ void Player::printInfo() const
     cout << "Force: " << m_force << endl;
     cout << "HP: " << m_Hp << endl;
     cout << "Coins: " << m_coins << endl;
-    cout << LINE_DIVIDER << endl;
+    cout << LINE_DIVIDE << endl;
 }
 
 void Player::levelUp()
@@ -49,10 +49,10 @@ void Player::heal(int hpBoost)
 {
     assert(hpBoost>0);
     m_Hp+=hpBoost;
-   if (m_Hp>m_maxHp)
-   {
-       m_Hp=m_maxHp;
-   }
+    if (m_Hp>m_maxHp)
+    {
+        m_Hp=m_maxHp;
+    }
 }
 void Player::damage(int hpDamage)
 {
