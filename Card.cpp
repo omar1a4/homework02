@@ -10,15 +10,18 @@ void Card :: applyEncounter(Player& player) const
 {
     if (m_effect == CardType::Battle)
     {
-       if(player.getAttackStrength() >= m_stats.force)
-       {
-           player.levelUp();
-           player.addCoins(m_stats.loot);
-       }
-       else
-       {
-           player.damage(m_stats.hpLossOnDefeat);
-       }
+        bool win=(player.getAttackStrength() >= m_stats.force);
+        if(win)
+        {
+            player.levelUp();
+            player.addCoins(m_stats.loot);
+            printBattleResult(win);  
+        }
+        else
+        {
+            player.damage(m_stats.hpLossOnDefeat);
+            printBattleResult(win);
+        }
     }
     if (m_effect == CardType ::Heal)
     {
@@ -36,7 +39,7 @@ void Card :: applyEncounter(Player& player) const
     }
     if (m_effect == CardType ::Treasure)
     {
-       player.addCoins(m_stats.loot);
+        player.addCoins(m_stats.loot);
     }
 
 }
@@ -60,3 +63,4 @@ void Card::printInfo() const
         printTreasureCardInfo(m_stats);
     }
 }
+
