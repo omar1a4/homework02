@@ -4,6 +4,7 @@
 
 #ifndef EX2_GAME_H
 #define EX2_GAME_H
+#include <string>
 #include "Card.h"
 #include <iostream>
 
@@ -27,7 +28,7 @@ public:
      * @result
      *      An instance of Mtmchkin
     */
-    Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
+    Mtmchkin(const std::string playerName, const Card* cardsArray, int numOfCards);
 
 
     /*
@@ -58,9 +59,17 @@ public:
     GameStatus getGameStatus() const;
 
     //TODO: complete the Mtmchkin class.
+    Mtmchkin(const Mtmchkin& game);
+    ~Mtmchkin();
+     Mtmchkin& operator=(const Mtmchkin& game);
 
 private:
-    //TODO: complete the Mtmchkin class.
+    Card* m_cardsArray;
+    int m_numOfCards;
+    GameStatus m_gameStatus;
+    int m_nextCardIndex;
+    Player m_player;
+
 
 };
 
