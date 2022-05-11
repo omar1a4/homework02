@@ -1,11 +1,9 @@
 #include "Mtmchkin.h"
 
 
-
-
 Mtmchkin :: Mtmchkin(const std::string playerName, const Card* cardsArray, int numOfCards)
-: m_player(playerName) , m_cardsArray(new Card[numOfCards]),
-m_numOfCards(numOfCards) ,m_gameStatus(GameStatus::MidGame),m_nextCardIndex(0)
+        : m_cardsArray(new Card[numOfCards]),m_numOfCards(numOfCards) ,
+          m_gameStatus(GameStatus::MidGame),m_nextCardIndex(0), m_player(playerName)
 {
     for (int i=0; i<numOfCards; i++)
     {
@@ -14,8 +12,8 @@ m_numOfCards(numOfCards) ,m_gameStatus(GameStatus::MidGame),m_nextCardIndex(0)
 }
 
 Mtmchkin ::Mtmchkin(const Mtmchkin& game)
-: m_player(game.m_player) , m_cardsArray(new Card[game.m_numOfCards]),
-m_numOfCards(game.m_numOfCards) ,m_gameStatus(game.m_gameStatus),m_nextCardIndex(game.m_nextCardIndex)
+        : m_cardsArray(new Card[game.m_numOfCards]), m_numOfCards(game.m_numOfCards) ,
+          m_gameStatus(game.m_gameStatus),m_nextCardIndex(game.m_nextCardIndex), m_player(game.m_player)
 {
     for (int i=0; i<game.m_numOfCards; i++)
     {
@@ -30,15 +28,15 @@ Mtmchkin ::~Mtmchkin()
 
 Mtmchkin& Mtmchkin::operator=(const Mtmchkin &game)
 {
-   if (this == &game)
-   {
-       return *this;
-   }
-   m_player=game.m_player;
-   delete[] m_cardsArray;
-   m_cardsArray=new Card [game.m_numOfCards];
-   m_numOfCards=game.m_numOfCards;
-   m_nextCardIndex=game.m_nextCardIndex;
+    if (this == &game)
+    {
+        return *this;
+    }
+    m_player=game.m_player;
+    delete[] m_cardsArray;
+    m_cardsArray=new Card [game.m_numOfCards];
+    m_numOfCards=game.m_numOfCards;
+    m_nextCardIndex=game.m_nextCardIndex;
     for (int i=0; i<game.m_numOfCards; i++)
     {
         m_cardsArray[i]=game.m_cardsArray[i];
