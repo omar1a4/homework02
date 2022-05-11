@@ -1,4 +1,4 @@
-//
+ //
 // Created by Daniel_Meents on 07/04/2022.
 //
 
@@ -58,10 +58,29 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
-    Mtmchkin(const Mtmchkin& game);
+    /*
+     * D'tor of the game.
+     *
+     * @result
+     *      void
+    */
     ~Mtmchkin();
-     Mtmchkin& operator=(const Mtmchkin& game);
+
+    /*
+     * copy c'tor of the game.
+     *
+     * @result
+     *      void
+    */
+    Mtmchkin(const Mtmchkin& game);
+
+    /*
+     * operator =() of the game.
+     *
+     * @result
+     *      void
+    */
+    Mtmchkin& operator=(const Mtmchkin& game);
 
 private:
     Card* m_cardsArray;
