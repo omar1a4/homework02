@@ -15,7 +15,7 @@ void Card :: applyEncounter(Player& player) const
         {
             player.levelUp();
             player.addCoins(m_stats.loot);
-            printBattleResult(win);  
+            printBattleResult(win);
         }
         else
         {
@@ -34,7 +34,7 @@ void Card :: applyEncounter(Player& player) const
     {
         if(player.pay(m_stats.cost))
         {
-            player.heal(m_stats.buff);
+            player.buff(m_stats.buff);
         }
     }
     if (m_effect == CardType ::Treasure)
@@ -63,4 +63,3 @@ void Card::printInfo() const
         printTreasureCardInfo(m_stats);
     }
 }
-
