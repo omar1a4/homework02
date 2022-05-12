@@ -1,7 +1,8 @@
-#ifndef PLAYER_H
+ #ifndef PLAYER_H
 #define PLAYER_H
 #include<string>
 
+const int INITIAL_LEVEL=1;
 
 class Player
 {
@@ -16,7 +17,18 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(std::string name, int maxHp = DEFAULT_MAX_HP, int maxForce = DEFAULT_MAX_FORCE);
+    Player(std::string name, int maxHp = DEFAULT_MAX_HP, int maxForce = DEFAULT_MAX_FORCE): m_name(name),
+    m_level(INITIAL_LEVEL),m_force(maxForce),m_maxHp(maxHp),m_Hp(maxHp),m_coins(0)
+    {
+        if(m_force<=0)
+        {
+            m_force=DEFAULT_MAX_FORCE;
+        }
+        if(m_maxHp<=0)
+        {
+            m_maxHp=DEFAULT_MAX_FORCE;
+        }
+    }
 
     /*
      * Here we are explicitly telling the compiler to use the default methods
