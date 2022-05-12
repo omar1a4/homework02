@@ -1,25 +1,15 @@
-#include "Player.h"
+ #include "Player.h"
+
 #include <iostream>
 #include <cassert>
 using std::cout;
 using std::cin;
 using std::endl;
 
-const char* LINE_DIVIDE = "------------------------";
-const int INITIAL_LEVEL=1;
+const char* LINE_DIVIDE  = "------------------------";
 const int INITIAL_COINS=0;
 const int FINAL_LEVEL=10;
-
-Player::Player(std::string name, int maxHp, int maxForce)
-{
-    m_name=name;
-    m_level=INITIAL_LEVEL;
-    m_force=maxForce;
-    m_maxHp=maxHp;
-    m_Hp=maxHp;
-    m_coins=INITIAL_COINS;
-}
-
+ 
 void Player::printInfo() const
 {
     cout << "Player Details:" << endl;
@@ -42,21 +32,30 @@ int Player::getLevel()const
 }
 void Player::buff(int force)
 {
-    assert(force>0);
+    if(force<0)
+    {
+        return;
+    }
     m_force+=force;
 }
 void Player::heal(int hpBoost)
 {
-    assert(hpBoost>0);
-    m_Hp+=hpBoost;
-    if (m_Hp>m_maxHp)
+    if (hpBoost<=0)
     {
-        m_Hp=m_maxHp;
+        return;
     }
+    m_Hp+=hpBoost;
+   if (m_Hp>m_maxHp)
+   {
+       m_Hp=m_maxHp;
+   }
 }
 void Player::damage(int hpDamage)
 {
-    assert(hpDamage>0);
+    if(hpDamage<=0)
+    {
+        return;
+    }
     m_Hp-=hpDamage;
     if(m_Hp<0)
     {
@@ -73,12 +72,18 @@ bool Player::isKnockedOut()const
 }
 void Player::addCoins(int coins)
 {
-    assert(coins>0);
+    if (coins<=0)
+    {
+        return;
+    }
     m_coins+=coins;
 }
 bool Player::pay(int payment)
 {
-    assert(payment>0);
+    if(payment<=0)
+    {
+        return true ;
+    }
     if (m_coins>=payment)
     {
         m_coins-=payment;
