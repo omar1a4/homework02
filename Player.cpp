@@ -1,7 +1,5 @@
 #include "Player.h"
-
 #include <iostream>
-#include <cassert>
 using std::cout;
 using std::cin;
 using std::endl;
