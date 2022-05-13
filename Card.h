@@ -10,7 +10,7 @@
 
 /*
  *  CardType:
- *  Each card has an type:
+ *  Each card has a type:
  *  BATTLE - Battle against a monster.
  *  BUFF - Increase your player's force by 'm_force' points of CardStats.
  *  HEAL - Increase your player's HP by 'm_heal' points  of CardStats (no more than maxHP points).
