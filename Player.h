@@ -1,8 +1,10 @@
- #ifndef PLAYER_H
+#ifndef PLAYER_H
 #define PLAYER_H
 #include<string>
 
+const int INITIAL_COINS=0;
 const int INITIAL_LEVEL=1;
+const int FINAL_LEVEL=10;
 
 class Player
 {
@@ -17,8 +19,8 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(std::string name, int maxHp = DEFAULT_MAX_HP, int maxForce = DEFAULT_MAX_FORCE): m_name(name),
-    m_level(INITIAL_LEVEL),m_force(maxForce),m_maxHp(maxHp),m_Hp(maxHp),m_coins(0)
+    Player(std::string name, int maxHp = DEFAULT_MAX_HP, int maxForce = DEFAULT_MAX_FORCE):
+    m_name(name),m_level(INITIAL_LEVEL),m_force(maxForce),m_maxHp(maxHp),m_Hp(maxHp),m_coins(INITIAL_COINS)
     {
         if(m_force<=0)
         {
