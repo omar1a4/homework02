@@ -26,7 +26,7 @@ Mtmchkin ::~Mtmchkin()
     delete[] m_cardsArray;
 }
 
-Mtmchkin& Mtmchkin::operator=(const Mtmchkin &game)
+Mtmchkin& Mtmchkin::operator=(const Mtmchkin& game)
 {
     if (this == &game)
     {
