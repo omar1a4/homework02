@@ -1,4 +1,4 @@
- #include "Player.h"
+#include "Player.h"
 
 #include <iostream>
 #include <cassert>
@@ -7,9 +7,7 @@ using std::cin;
 using std::endl;
 
 const char* LINE_DIVIDE  = "------------------------";
-const int INITIAL_COINS=0;
-const int FINAL_LEVEL=10;
- 
+
 void Player::printInfo() const
 {
     cout << "Player Details:" << endl;
@@ -45,10 +43,10 @@ void Player::heal(int hpBoost)
         return;
     }
     m_Hp+=hpBoost;
-   if (m_Hp>m_maxHp)
-   {
-       m_Hp=m_maxHp;
-   }
+    if (m_Hp>m_maxHp)
+    {
+        m_Hp=m_maxHp;
+    }
 }
 void Player::damage(int hpDamage)
 {
