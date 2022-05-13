@@ -56,7 +56,7 @@ void Mtmchkin::playNextCard()
     nextCard.printInfo();
     nextCard.applyEncounter(m_player);
     m_player.printInfo();
-    if(m_player.getLevel()==10)
+    if(m_player.getLevel()==FINAL_LEVEL)
     {
         m_gameStatus=GameStatus::Win;
     }
