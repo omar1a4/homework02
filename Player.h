@@ -15,7 +15,7 @@ public:
      *
      * @param name - The player name.
      * @param maxHp - The max value of health points.
-     * @param maxforce - The primitive value of health points.
+     * @param maxforce - The maximum desired player force.
      * @return
      *      A new instance of Player.
     */
@@ -33,10 +33,18 @@ public:
     }
 
     /*
-     * Here we are explicitly telling the compiler to use the default methods
+     * Default copy c'tor.
     */
     Player(const Player& other) = default;
+
+    /*
+     * Default assignment operator.
+     */
     Player& operator=(const Player& other)=default;
+
+    /*
+     * Default d'tor
+     */
     ~Player() = default;
 
     /*
@@ -49,7 +57,7 @@ public:
 
 
     /*
-     * Raises the level of the player.
+     * Raises the level of the player by 1.
      *
      * @return
      *      void
@@ -57,7 +65,7 @@ public:
     void levelUp();
 
     /*
-     * Returns the player level .
+     * Returns the player level.
      *
      * @return
      *      The player's level.
@@ -66,7 +74,7 @@ public:
 
     /*
      * Raises the player's power points.
-     * @param force - The power to be added the player's power.
+     * @param force - The desired force boost.
      *
      * @return
      *      void
@@ -74,8 +82,8 @@ public:
     void buff(int force);
 
     /*
-     * Raises the player's health points until the maxHp.
-     * @param hpBoost - The health points to be added the player's Hp.
+     * Increases the player's health points.
+     * @param hpBoost - The health points to be added to the player's Hp.
      *
      * @return
      *      void
@@ -84,7 +92,7 @@ public:
 
 
     /*
-     * Lowers the player's health points.
+     * Decreases the player's health points.
      * @param hpDamage - The health points to be reduced from the player's Hp.
      *
      * @return
@@ -96,14 +104,14 @@ public:
      * Checks if the health points of the player is zero.
      *
      * @return
-     *     true -if the player's health points is zero.
+     *     true -if the player's HP is zero.
      *     false -otherwise.
      */
     bool isKnockedOut() const;
 
     /*
-     * Add coins to the player's coins.
-     * @param coins - The coins to be added to the player's point.
+     * Add coins to the player's total coins.
+     * @param coins - The coins to be added to the player's total coins.
      *
      * @return
      *      void
@@ -112,8 +120,8 @@ public:
 
 
     /*
-     * Lowers the player's coins if he had enough coins to pay.
-     * @param payment - The price.
+     * Lowers the player's coins.
+     * @param payment - The amount the player should pay.
      *
      * @return
      *      true: if the player had enough coins to pay.
@@ -122,10 +130,10 @@ public:
     bool pay(int payment);
 
     /*
-     * Returns the attack power.
+     * Returns the attack strength.
      *
      * @return
-     *      The player's level+The player's force.
+     *      The player's level + the player's force.
      */
     int getAttackStrength() const;
 
